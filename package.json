@@ -1,0 +1,26 @@
+{
+  "name": "hadhat",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "dotenv": "^10.0.0",
+    "fs": "0.0.1-security",
+    "hardhat": "^2.6.1"
+  },
+  "devDependencies": {
+    "@nomiclabs/hardhat-ethers": "^2.0.2",
+    "@nomiclabs/hardhat-etherscan": "^2.1.5",
+    "@nomiclabs/hardhat-waffle": "^2.0.1",
+    "chai": "^4.3.4",
+    "ethereum-waffle": "^3.4.0",
+    "ethers": "^5.4.5"
+  },
+  "scripts": {
+    "test": "npx hardhat test",
+    "deploy": "npx hardhat run --network fantomtestnet  scripts/deploy.js",
+    "deploy_local": "npx hardhat run --network localhost  scripts/deploy.js"
+  },
+  "author": "",
+  "license": "ISC"
+}
