@@ -4,6 +4,7 @@ pragma solidity ^0.8.0;
 
 import "./utils/access/Ownable.sol";
 import "./ERC721/ERC721.sol";
+import "./ERC20/IERC20.sol";
 
 contract weapons is Ownable, ERC721 {
     
@@ -16,27 +17,28 @@ contract weapons is Ownable, ERC721 {
     struct AssetInfo {
         uint256 assetId;
         string tokenURI;
+        uint256 initPrice;
     }
 
     /* --------------- assetInfos ---------------*/
     
     event ItemAdded (
-        uint256 assetId
+        uint256 assetId,
+        uint256 price,
     );
 
     AssetInfo[] public assets;
 
-    /* --------------- tokenInfos ---------------*/
+    /* --------------- tokenInfos --------------- */
 
     uint256 private _totalSupply;
     
     mapping(uint256 => string) private _tokenURIs;
     mapping(uint256 => AssetInfo) public _tokenMetadatas;
 
-    // Used to correctly support fingerprint verification for the assets
-    bytes4 public constant _INTERFACE_ID_ERC721_VERIFY_FINGERPRINT = bytes4(
-        keccak256("verifyFingerprint(uint256,bytes32)")
-    );
+    address public AtariTokenAddress;
+
+    /* */
 
     constructor (
         string memory _name,
@@ -47,14 +49,9 @@ contract weapons is Ownable, ERC721 {
         _totalSupply=0;
     }
     
-    /**
-     * @dev Returns an URI for a given token ID
-     * Throws if the token ID does not exist. May return an empty string.
-     * @param tokenId uint256 ID of the token to query
-     */
     function tokenURI(uint256 tokenId) external view returns (string memory) {
         require(_exists(tokenId));
-        return _tokenURIs[tokenId];
+        return _tokenMetadatas[tokenId].tokenURI;
     }
     
     function totalSupply()external view returns(uint256){
@@ -62,10 +59,13 @@ contract weapons is Ownable, ERC721 {
     }
 
     function create(
-        string calldata _metaDataURI
+        uint256 _assetId
     )
         external
     {
+        require(assets.length >= _assetId, "weapon : asset not exist");
+        IERC20(AtariTokenAddress).transferFrom(assets[_assetId].initPrice);
+         
         _create(msg.sender, _metaDataURI);
     }
 
