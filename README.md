@@ -1,2 +1,2 @@
-# OpenPetworld_gameContract
-this is openpetworld game contracts
+# Multiplay RPG shooting gameContract
+this is Shooting game contracts and NFT marketplace contract
