@@ -338,7 +338,7 @@ contract Ownable is Context {
   }
 }
 
-contract PetCoin is Context, IBEP20, Ownable {
+contract AtariCoin is Context, IBEP20, Ownable {
   using SafeMath for uint256;
 
   mapping (address => uint256) private _balances;
@@ -351,8 +351,8 @@ contract PetCoin is Context, IBEP20, Ownable {
   string private _name;
 
   constructor() {
-    _name = "petCoin";
-    _symbol = "PETCOIN";
+    _name = "atariCoin";
+    _symbol = "ATARI";
     _decimals = 0;
     _totalSupply = 5000000000000000000000000000;
     _balances[msg.sender] = _totalSupply;

@@ -1,9 +1,9 @@
 const hre = require("hardhat");
 
-const deployMarketplace =async  (petCoin)=>{
+const deployMarketplace =async  (atariCoin)=>{
 
     const Marketplace = await hre.ethers.getContractFactory("Marketplace");
-    const marketplace = await Marketplace.deploy(petCoin);
+    const marketplace = await Marketplace.deploy(atariCoin);
 
     await marketplace.deployed();
     
@@ -11,6 +11,5 @@ const deployMarketplace =async  (petCoin)=>{
     
     return marketplace.address;
 }
-
 
 module.exports = {deployMarketplace}

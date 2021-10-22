@@ -1,6 +1,6 @@
 {
     "atariToken": {
-        "address": "0x70F0763C9DaA706dD51500FF09B4094536c6AC9d",
+        "address": "0x968c01AbaC58a7E0C17090030dd1A501c6F9de5d",
         "abi": [
             {
                 "inputs": [],
@@ -364,7 +364,7 @@
         ]
     },
     "weaponNFT": {
-        "address": "0x29A484baBb4f9F4438dc96fa24E048E62a0B34eD",
+        "address": "0xfaE26f6358d30F6085c2284cB0A1b94e93689D08",
         "abi": [
             {
                 "inputs": [
@@ -440,6 +440,12 @@
                         "internalType": "uint256",
                         "name": "assetId",
                         "type": "uint256"
+                    },
+                    {
+                        "indexed": false,
+                        "internalType": "string",
+                        "name": "tokenURI",
+                        "type": "string"
                     },
                     {
                         "indexed": false,
@@ -1048,7 +1054,7 @@
         ]
     },
     "multiCall": {
-        "address": "0x9C91a3c78394D6438838EB0C9A154fcC669ad5E4",
+        "address": "0x67C7e0c8e6fa956743028203d2227139FE520Ce6",
         "abi": [
             {
                 "anonymous": false,
@@ -1189,7 +1195,7 @@
         ]
     },
     "marketPlace": {
-        "address": "0xa0379927d350D842DbE144bae069729599a2eEC1",
+        "address": "0x994341f7ecb4DB0887AEc366d9915C33fa3e8Dd0",
         "abi": [
             {
                 "inputs": [

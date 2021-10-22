@@ -1,6 +1,6 @@
 const hre = require("hardhat");
 
-const deployMultiCall =async (artAddress,eggAddress,petAddress)=>{
+const deployMultiCall =async (weaponAddress)=>{
 
         const MultiCall = await hre.ethers.getContractFactory("multicall");
         const multiCall = await MultiCall.deploy();
@@ -10,10 +10,10 @@ const deployMultiCall =async (artAddress,eggAddress,petAddress)=>{
 
         //set config
         
-        var tx = await multiCall.setAddresses(artAddress,eggAddress,petAddress);
+        var tx = await multiCall.setAddresses(weaponAddress);
         await tx.wait();
         
-        console.log("multiCall: set art,pet,eggNFT addresses",artAddress,eggAddress,petAddress);
+        console.log("multiCall: set weaponNFT addresses",weaponAddress);
         
         return multiCall.address;
 }

@@ -6,7 +6,7 @@ import "./utils/access/Ownable.sol";
 import "./ERC721/ERC721.sol";
 import "./ERC20/IERC20.sol";
 
-contract weapons is Ownable, ERC721 {
+contract WeaponNFT is Ownable, ERC721 {
     
     event ItemCreated(
         address indexed owner,
@@ -24,7 +24,13 @@ contract weapons is Ownable, ERC721 {
     
     event ItemAdded (
         uint256 assetId,
-        uint256 price,
+        string tokenURI,
+        uint256 price
+    );
+    
+    event SetTokenMetadata (
+        uint256 assetId,
+        uint256 price
     );
 
     AssetInfo[] public assets;
@@ -33,12 +39,11 @@ contract weapons is Ownable, ERC721 {
 
     uint256 private _totalSupply;
     
-    mapping(uint256 => string) private _tokenURIs;
     mapping(uint256 => AssetInfo) public _tokenMetadatas;
 
     address public AtariTokenAddress;
 
-    /* */
+    /* --------------- functions --------------- */
 
     constructor (
         string memory _name,
@@ -48,6 +53,39 @@ contract weapons is Ownable, ERC721 {
     {
         _totalSupply=0;
     }
+
+    function create(
+        uint256 _assetId
+    )
+        external
+    {
+        require( _existAssets(_assetId), "weapon : asset not exist");
+        IERC20(AtariTokenAddress).transferFrom(msg.sender,owner(),assets[_assetId].initPrice);
+         
+        _create(msg.sender, _assetId);
+    }
+
+    function _create(
+        address _owner,
+        uint256 _assetId
+    )
+        internal returns (uint256 tokenId)
+    {
+        tokenId = _totalSupply;
+        _totalSupply=_totalSupply+1;
+
+        /// Mint new NFT
+        _mint(_owner, tokenId);
+        _tokenMetadatas[tokenId] = assets[_assetId];
+
+        emit ItemCreated(_owner, _assetId, tokenId);
+    }
+    
+    function _existAssets(uint256 _assetId) internal view returns (bool) {
+        return (assets.length > _assetId);
+    }
+
+    /* ------------- view ---------------*/
     
     function tokenURI(uint256 tokenId) external view returns (string memory) {
         require(_exists(tokenId));
@@ -58,56 +96,37 @@ contract weapons is Ownable, ERC721 {
         return _totalSupply;
     }
 
-    function create(
-        uint256 _assetId
-    )
-        external
+    function getAssets(uint256 _assetId) external view 
+        returns (
+        uint256 assetId,
+        string memory URI,
+        uint256 initPrice
+        )
     {
-        require(assets.length >= _assetId, "weapon : asset not exist");
-        IERC20(AtariTokenAddress).transferFrom(assets[_assetId].initPrice);
-         
-        _create(msg.sender, _metaDataURI);
+        assetId = _assetId;
+        URI = assets[_assetId].tokenURI;
+        initPrice = assets[_assetId].initPrice;
     }
 
-    function createPub(
-        string calldata _metaDataURI,
-        address _marketplace
-    )
-        external
-    {
-        // Create the new asset and allow marketplace to manage it
-        // Use this to override the msg.sender here.
-        this.approve(
-            _marketplace,
-            _create(msg.sender, _metaDataURI)
-        );
+    /* ------------- Update --------------*/
+
+    function setAcceptedToken(address _tokenAddress) external onlyOwner {
+
+        AtariTokenAddress = _tokenAddress;
     }
 
-    function _create(
-        address _owner,
-        string calldata _metaDataURI
-    )
-        internal returns (uint256 tokenId)
-    {
-        tokenId = _totalSupply;
-        _totalSupply=_totalSupply+1;
-
-        /// Mint new NFT
-        _mint(_owner, tokenId);
-        _setTokenURI(tokenId, _metaDataURI);
-
-        emit ItemCreated(_owner, 0, tokenId);
+    function AddAssets(string calldata _tokenURI, uint256 _initPrice) external onlyOwner {
+        
+        assets.push(AssetInfo(assets.length, _tokenURI, _initPrice));
+        emit ItemAdded(assets.length-1, _tokenURI, _initPrice);
     }
-    
-    /**
-     * @dev Internal function to set the token URI for a given token
-     * Reverts if the token ID does not exist
-     * @param tokenId uint256 ID of the token to set its URI
-     * @param uri string URI to assign
-     */
-    function _setTokenURI(uint256 tokenId, string memory uri) internal {
-        require(_exists(tokenId));
-        _tokenURIs[tokenId] = uri;
+
+    function setTokenMetadata(uint256 _assetId, string calldata _tokenURI, uint256 _initPrice) external onlyOwner{
+        require(_existAssets(_assetId),"setURI : asset not exist");
+
+        assets[_assetId].tokenURI = _tokenURI;
+        assets[_assetId].initPrice = _initPrice;
+
+        emit SetTokenMetadata(_assetId,_initPrice);
     }
-    
 }
