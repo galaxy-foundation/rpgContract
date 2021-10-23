@@ -14,6 +14,10 @@ const upload_IFPS =async (Num)=>{
         console.log(ipfsHash);
         ipfsHashes[i] = ipfsHash;
     } 
+    fs.writeFile("./exports/ipfshashes.json",JSON.stringify(ipfsHashes,null,4), function(err,content){
+        if (err) throw err;
+        console.log('complete');
+});
 }
 
-upload_IFPS(5)
+upload_IFPS(10)
