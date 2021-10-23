@@ -152,7 +152,7 @@ const deployWeaponNFT =async (atariCoin)=>{
 		await tx.wait();
 	}
 	
-	return weaponNFT.address;
+	return weaponNFT;
 }
 
 module.exports = {deployWeaponNFT}

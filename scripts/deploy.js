@@ -16,28 +16,27 @@ async function main() {
 
   // local test
   
-  var atariCoinAddress = await deployAtariCoin();
+  var atariCoin = await deployAtariCoin();
   // var atariCoin = process.env.ATARICOIN;
 
-  var weaponAddress = await deployWeaponNFT(atariCoinAddress);
+  var weapon = await deployWeaponNFT(atariCoin.address);
 
-  var multiCallAddress = await deployMultiCall(weaponAddress);
+  var multiCall = await deployMultiCall(weapon.address);
 
-  var marketAddress = await deployMarketplace(atariCoinAddress);
+  var market = await deployMarketplace(atariCoin.address);
 
   //object
-  var atariToken = {address:atariCoinAddress, abi:AtariCoin.abi};
-  var weaponNFT = {address:weaponAddress, abi:WeaponNFT.abi};
-  var multiCall = {address:multiCallAddress, abi:MultiCall.abi};
-  var marketPlace = {address:marketAddress,abi:MarketPlace.abi}
+  var atariToken = {address:atariCoin.address, abi:AtariCoin.abi};
+  var weaponNFT = {address:weapon.address, abi:WeaponNFT.abi};
+  var multiCall = {address:multiCall.address, abi:MultiCall.abi};
+  var marketPlace = {address:market.address,abi:MarketPlace.abi}
 
   var contractObject = {atariToken,weaponNFT,multiCall,marketPlace};
   
-  fs.writeFile("./exports/contracts/4002.json",JSON.stringify(contractObject,null,4), function(err,content){
+  fs.writeFile("./exports/4002.json",JSON.stringify(contractObject,null,4), function(err,content){
           if (err) throw err;
           console.log('complete');
   });
-
 }
 
 main()

@@ -8,7 +8,7 @@ const deployAtariCoin =async ()=>{
         await atariCoin.deployed();
         
         console.log("atariCoin deployed to:", atariCoin.address);
-        return atariCoin.address;
+        return atariCoin
 }
 
 

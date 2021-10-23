@@ -43,6 +43,12 @@ contract WeaponNFT is Ownable, ERC721 {
 
     address public AtariTokenAddress;
 
+    /* --------------- userInfo --------------- */
+    event Registered(address user, string name);
+
+    mapping(address => bool) public isRegistered;
+    mapping(address => string) public users;
+
     /* --------------- functions --------------- */
 
     constructor (
@@ -52,6 +58,20 @@ contract WeaponNFT is Ownable, ERC721 {
         Ownable() ERC721(_name, _symbol)
     {
         _totalSupply=0;
+    }
+
+    function register(string memory name) external {
+        require(isRegistered[msg.sender] == false, "already registered");
+        isRegistered[msg.sender] == true;
+        users[msg.sender] = name;
+        _create(msg.sender, 0);
+        _create(msg.sender, 1);
+        emit Registered(msg.sender, name);
+    }
+
+    function changeName(string memory name) external {
+        require(isRegistered[msg.sender] == true, "already registered");
+        users[msg.sender] = name;
     }
 
     function create(
@@ -94,6 +114,11 @@ contract WeaponNFT is Ownable, ERC721 {
     
     function totalSupply()external view returns(uint256){
         return _totalSupply;
+    }
+
+    
+    function totalAssets()external view returns(uint256){
+        return assets.length;
     }
 
     function getAssets(uint256 _assetId) external view 

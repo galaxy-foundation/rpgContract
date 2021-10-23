@@ -9,7 +9,7 @@ const deployMarketplace =async  (atariCoin)=>{
     
     console.log("marketplace deployed to:", marketplace.address);
     
-    return marketplace.address;
+    return marketplace;
 }
 
 module.exports = {deployMarketplace}

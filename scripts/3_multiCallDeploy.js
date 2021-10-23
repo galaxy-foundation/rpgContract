@@ -15,7 +15,7 @@ const deployMultiCall =async (weaponAddress)=>{
         
         console.log("multiCall: set weaponNFT addresses",weaponAddress);
         
-        return multiCall.address;
+        return multiCall;
 }
 
 

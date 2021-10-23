@@ -6,7 +6,8 @@
   "dependencies": {
     "dotenv": "^10.0.0",
     "fs": "0.0.1-security",
-    "hardhat": "^2.6.1"
+    "hardhat": "^2.6.1",
+    "ipfs-api": "^26.1.2"
   },
   "devDependencies": {
     "@nomiclabs/hardhat-ethers": "^2.0.2",
@@ -19,7 +20,8 @@
   "scripts": {
     "test": "npx hardhat test",
     "deploy": "npx hardhat run --network fantomtestnet  scripts/deploy.js",
-    "deploy_local": "npx hardhat run --network localhost  scripts/deploy.js"
+    "deploy_local": "npx hardhat run --network localhost  scripts/deploy.js",
+    "deploy_ipfs" :"node scripts/upload_IPFS/upload_ipfs.js"
   },
   "author": "",
   "license": "ISC"
