@@ -33,7 +33,7 @@ async function main() {
 
   var contractObject = {atariToken,weaponNFT,multiCall,marketPlace};
   
-  fs.writeFile("./exports/4002.json",JSON.stringify(contractObject,null,4), function(err,content){
+  fs.writeFile("./exports/gameContracts.json",JSON.stringify(contractObject,null,4), function(err,content){
           if (err) throw err;
           console.log('complete');
   });

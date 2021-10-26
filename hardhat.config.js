@@ -21,12 +21,33 @@ task("accounts", "Prints the list of accounts", async (taskArgs, hre) => {
 module.exports = {
   networks: {
     localhost: {
-      url: "http://127.0.0.1:7545"
+      url: "http://127.0.0.1:8545"
     },
-    hardhat: {
+    ganache: {
+      url: "http://127.0.0.1:7545"
     },
     fantomtestnet: {
       url: "https://rpc.testnet.fantom.network",
+      accounts: [process.env.PRIVATEKEY]
+    },
+    ethereum :{
+      url: "https://main-light.eth.linkpool.io/",
+      accounts: [process.env.PRIVATEKEY]
+    },
+    ICICB :{
+      url: "http://3.17.193.52/",
+      accounts: [process.env.PRIVATEKEY]
+    },
+    bsc :{
+      url: "https://bsc-dataseed1.ninicoin.io/",
+      accounts: [process.env.PRIVATEKEY]
+    },
+    matic :{
+      url: "https://rpc-mainnet.matic.quiknode.pro",
+      accounts: [process.env.PRIVATEKEY]
+    },
+    fantom :{
+      url: "https://rpc.ftm.tools/",
       accounts: [process.env.PRIVATEKEY]
     }
   },
@@ -35,12 +56,14 @@ module.exports = {
     // Obtain one at https://etherscan.io/
     apiKey: "WQKQ9RXXCTK715PKG1H7JUMV4ZEUW3KKXN"
   },
-  solidity: "0.8.4", 
-  settings: {
-    optimizer: {
-      enabled: true,
-      runs: 200,
-    },
+  solidity: {
+    version: "0.8.4",
+    settings: {
+      optimizer: {
+        enabled: true,
+        runs: 200,
+      },
+    }
   },
   mocha: {
     timeout: 200000

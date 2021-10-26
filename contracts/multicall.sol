@@ -36,15 +36,15 @@ contract multicall is Ownable {
         }
     }
     
-    function getWeaponAssetInfos(uint256[] memory _assetIds) external view returns (uint256[] memory assetIds,string[] memory URIs,uint256[] memory initPrices){ 
+    function getWeaponAssetInfos(uint256[] memory _assetIds) external view returns (uint256[] memory assetIds,string[] memory tokenURIs,uint256[] memory initPrices){ 
         assetIds = new uint256[](_assetIds.length);
-        URIs = new string[](_assetIds.length);
+        tokenURIs = new string[](_assetIds.length);
         initPrices = new uint256[](_assetIds.length);
         
         IWeaponNFT weaponNFT = IWeaponNFT(weaponNFTAddress);
         
         for (uint256 i=0; i<assetIds.length; i++){
-            (assetIds[i],URIs[i],initPrices[i]) = weaponNFT.getAssets(_assetIds[i]);
+            (assetIds[i],tokenURIs[i],initPrices[i]) = weaponNFT.getAssets(_assetIds[i]);
         }
     }
 }
