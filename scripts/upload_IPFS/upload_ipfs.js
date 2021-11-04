@@ -13,10 +13,10 @@ const upload_IFPS =async (Num)=>{
         const contents = fs.readFileSync(basic_file_path+keys[i]+".mp4");
         console.log(basic_file_path+i+".mp4");
         
-        // var result = await ipfs.files.add(contents);
-        // var ipfsHash = basic_ipfs_url+result[0].hash;
-        // console.log(ipfsHash);
-        // ipfsHashes[keys] = ipfsHash;
+        var result = await ipfs.files.add(contents);
+        var ipfsHash = basic_ipfs_url+result[0].hash;
+        console.log(ipfsHash);
+        ipfsHashes[keys] = ipfsHash;
     } 
     fs.writeFile("./resources/ipfshashes.json",JSON.stringify(ipfsHashes,null,4), function(err,content){
         if (err) throw err;
