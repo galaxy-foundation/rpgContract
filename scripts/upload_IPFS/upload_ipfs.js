@@ -2,6 +2,10 @@ const ipfs = require("./ipfs_api");
 const fs = require('fs');
 const weaponInfos = require("../../resources/weaponInfos.json")
 
+function delay(time) {
+    return new Promise(resolve => setTimeout(resolve, time));
+}
+
 const upload_IFPS =async (Num)=>{
     const basic_ipfs_url = "https://ipfs.io/ipfs/";
 
@@ -17,6 +21,8 @@ const upload_IFPS =async (Num)=>{
         var ipfsHash = basic_ipfs_url+result[0].hash;
         console.log(ipfsHash);
         ipfsHashes[keys] = ipfsHash;
+
+        await delay(500);
     } 
     fs.writeFile("./resources/ipfshashes.json",JSON.stringify(ipfsHashes,null,4), function(err,content){
         if (err) throw err;
