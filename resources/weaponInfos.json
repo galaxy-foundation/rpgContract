@@ -1,5 +1,13 @@
 {
-    
+    "Knife":{
+        "Price" : "30",
+        "Damage" : "60",
+        "FireRate": "0.7",
+        "ReloadTime" : "1",
+        "Range" : "2",
+        "Accurancy" : "1",
+        "Weight" : "1"
+    },
     "Colt M1911":{
         "Price" : "500",
         "Damage" : "30",
