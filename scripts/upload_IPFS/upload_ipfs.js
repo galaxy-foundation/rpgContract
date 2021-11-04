@@ -22,7 +22,7 @@ const upload_IFPS =async (Num)=>{
         console.log(ipfsHash);
         ipfsHashes[keys] = ipfsHash;
 
-        await delay(1000);
+        await delay(2000);
     } 
     fs.writeFile("./resources/ipfshashes.json",JSON.stringify(ipfsHashes,null,4), function(err,content){
         if (err) throw err;
