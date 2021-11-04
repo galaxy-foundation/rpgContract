@@ -38,6 +38,10 @@ module.exports = {
       url: "http://3.17.193.52/",
       accounts: [process.env.PRIVATEKEY]
     },
+    ICICBtestnet :{
+      url: "http://13.58.153.103/",
+      accounts: [process.env.PRIVATEKEY]
+    },
     bsc :{
       url: "https://bsc-dataseed1.ninicoin.io/",
       accounts: [process.env.PRIVATEKEY]

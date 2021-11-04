@@ -146,6 +146,13 @@ contract WeaponNFT is Ownable, ERC721 {
         emit ItemAdded(assets.length-1, _tokenURI, _initPrice);
     }
 
+    function BatchAddAssets(string[] calldata _tokenURIs, uint256[] calldata _initPrices) external onlyOwner {
+        for(uint i = 0; i < _tokenURIs.length; i++){
+            assets.push(AssetInfo(assets.length, _tokenURIs[i], _initPrices[i]));
+            emit ItemAdded(assets.length-1, _tokenURIs[i], _initPrices[i]);
+        }
+    }
+
     function setTokenMetadata(uint256 _assetId, string calldata _tokenURI, uint256 _initPrice) external onlyOwner{
         require(_existAssets(_assetId),"setURI : asset not exist");
 

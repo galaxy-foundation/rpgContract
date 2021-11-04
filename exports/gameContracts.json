@@ -1,6 +1,6 @@
 {
     "atariToken": {
-        "address": "0xaBcf5f7f6BBbAb97A1dCbCD0F683fbAc2175a31B",
+        "address": "0xc47fB317588A4CD974eD7186aD798db47212B16B",
         "abi": [
             {
                 "inputs": [],
@@ -364,7 +364,7 @@
         ]
     },
     "weaponNFT": {
-        "address": "0x569483C4843fE6d8993eC365dA19A0c14fc03894",
+        "address": "0xa050854C93236493Eafe7eb4FCA58b3c1279d648",
         "abi": [
             {
                 "inputs": [
@@ -593,6 +593,24 @@
                     }
                 ],
                 "stateMutability": "view",
+                "type": "function"
+            },
+            {
+                "inputs": [
+                    {
+                        "internalType": "string[]",
+                        "name": "_tokenURIs",
+                        "type": "string[]"
+                    },
+                    {
+                        "internalType": "uint256[]",
+                        "name": "_initPrices",
+                        "type": "uint256[]"
+                    }
+                ],
+                "name": "BatchAddAssets",
+                "outputs": [],
+                "stateMutability": "nonpayable",
                 "type": "function"
             },
             {
@@ -1150,7 +1168,7 @@
         ]
     },
     "multiCall": {
-        "address": "0x15940b28CfFb5Ef90536760Bb429D2C72e348E97",
+        "address": "0x2F42171482c3475715A9D530CFe42076e7485dEe",
         "abi": [
             {
                 "anonymous": false,
@@ -1291,7 +1309,7 @@
         ]
     },
     "marketPlace": {
-        "address": "0x430b013C1Fad1fC8E377e96Dbe656C89d7052832",
+        "address": "0xFa3d4E82E9de4fEBEFDe6Ec7767c7244FFeB04Cf",
         "abi": [
             {
                 "inputs": [
@@ -1717,6 +1735,50 @@
                 "inputs": [
                     {
                         "internalType": "address",
+                        "name": "",
+                        "type": "address"
+                    },
+                    {
+                        "internalType": "uint256",
+                        "name": "",
+                        "type": "uint256"
+                    },
+                    {
+                        "internalType": "uint256",
+                        "name": "",
+                        "type": "uint256"
+                    }
+                ],
+                "name": "bidHistoryByOrderId",
+                "outputs": [
+                    {
+                        "internalType": "bytes32",
+                        "name": "id",
+                        "type": "bytes32"
+                    },
+                    {
+                        "internalType": "address",
+                        "name": "bidder",
+                        "type": "address"
+                    },
+                    {
+                        "internalType": "uint256",
+                        "name": "price",
+                        "type": "uint256"
+                    },
+                    {
+                        "internalType": "uint256",
+                        "name": "expiresAt",
+                        "type": "uint256"
+                    }
+                ],
+                "stateMutability": "view",
+                "type": "function"
+            },
+            {
+                "inputs": [
+                    {
+                        "internalType": "address",
                         "name": "_nftAddress",
                         "type": "address"
                     },
@@ -1831,6 +1893,52 @@
                         "internalType": "struct IMarketplace.Bid[]",
                         "name": "bids",
                         "type": "tuple[]"
+                    }
+                ],
+                "stateMutability": "view",
+                "type": "function"
+            },
+            {
+                "inputs": [
+                    {
+                        "internalType": "address",
+                        "name": "_nftAddress",
+                        "type": "address"
+                    },
+                    {
+                        "internalType": "uint256[]",
+                        "name": "_assetIds",
+                        "type": "uint256[]"
+                    }
+                ],
+                "name": "getBidHistoryByAssetIds",
+                "outputs": [
+                    {
+                        "components": [
+                            {
+                                "internalType": "bytes32",
+                                "name": "id",
+                                "type": "bytes32"
+                            },
+                            {
+                                "internalType": "address",
+                                "name": "bidder",
+                                "type": "address"
+                            },
+                            {
+                                "internalType": "uint256",
+                                "name": "price",
+                                "type": "uint256"
+                            },
+                            {
+                                "internalType": "uint256",
+                                "name": "expiresAt",
+                                "type": "uint256"
+                            }
+                        ],
+                        "internalType": "struct IMarketplace.Bid[][]",
+                        "name": "bids",
+                        "type": "tuple[][]"
                     }
                 ],
                 "stateMutability": "view",

@@ -22,6 +22,7 @@
     "deploy": "npx hardhat run --network fantomtestnet  scripts/deploy.js",
     "deploy_fantom": "npx hardhat run --network fantom  scripts/deploy.js",
     "deploy_icicb": "npx hardhat run --network ICICB scripts/deploy.js",
+    "deploy_icicbtest": "npx hardhat run --network ICICBtestnet scripts/deploy.js",
     "deploy_local": "npx hardhat run --network localhost  scripts/deploy.js",
     "deploy_ganache": "npx hardhat run --network ganache  scripts/deploy.js",
     "deploy_ipfs" :"node scripts/upload_IPFS/upload_ipfs.js"

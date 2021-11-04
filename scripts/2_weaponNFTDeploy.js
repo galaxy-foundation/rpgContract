@@ -162,12 +162,18 @@ const deployWeaponNFT =async (atariCoin)=>{
 	await tx.wait();
 
 	var tokenInfos = getTokenURIS();
+
+    var tokenURIs = [];
+    var prices = [];
 	//init asssets
 	for(var i=0; i<tokenInfos.length; i++) {
 		console.log(tokenInfos[i].tokenURI);
-		tx = await weaponNFT.AddAssets(JSON.stringify(tokenInfos[i].tokenURI) ,ethers.utils.parseUnits(tokenInfos[i].price));
-		await tx.wait();
+        tokenURIs.push(JSON.stringify(tokenInfos[i].tokenURI));
+        prices.push(ethers.utils.parseUnits(tokenInfos[i].price));
 	}
+
+    tx = await weaponNFT.BatchAddAssets(tokenURIs ,prices);
+    await tx.wait();
 	
 	return weaponNFT;
 }

@@ -1,0 +1,260 @@
+{
+    
+    "Colt M1911":{
+        "Price" : "500",
+        "Damage" : "30",
+        "FireRate": "0.2",
+        "ReloadTime" : "1.6",
+        "Range" : "50",
+        "Accurancy" : "3",
+        "Weight" : "1.3"
+    },
+    "Dragunov SVD-1":{
+        "Price" : "3000",
+        "Damage" : "100",
+        "FireRate": "0.6",
+        "ReloadTime" : "3",
+        "Range" : "800",
+        "Accurancy" : "5",
+        "Weight" : "3.44"
+    },
+    "Dragunov SVD-2":{
+        "Price" : "2800",
+        "Damage" : "80",
+        "FireRate": "0.6",
+        "ReloadTime" : "3",
+        "Range" : "700",
+        "Accurancy" : "5",
+        "Weight" : "3.44"
+
+    },
+    "Dragunov SVD-3":{
+        "Price" : "2500",
+        "Damage" : "60",
+        "FireRate": "0.6",
+        "ReloadTime" : "3",
+        "Range" : "600",
+        "Accurancy" : "5",
+        "Weight" : "3.44"
+    },
+    "Dragunov SVD-4":{
+        "Price" : "2300",
+        "Damage" : "50",
+        "FireRate": "0.6",
+        "ReloadTime" : "3",
+        "Range" : "500",
+        "Accurancy" : "5",
+        "Weight" : "3.44"
+
+    },
+    "FN_FNC-1":{
+        "Price" : "1400",
+        "Damage" : "30",
+        "FireRate": "0.09",
+        "ReloadTime" : "2.2",
+        "Range" : "700",
+        "Accurancy" : "2",
+        "Weight" : "3"
+
+    },
+    "FN_FNC-2":{
+        "Price" : "1200",
+        "Damage" : "25",
+        "FireRate": "0.09",
+        "ReloadTime" : "2.2",
+        "Range" : "600",
+        "Accurancy" : "2",
+        "Weight" : "3"
+
+    },
+    "FN_FNC-3":{
+        "Price" : "1000",
+        "Damage" : "20",
+        "FireRate": "0.09",
+        "ReloadTime" : "2.2",
+        "Range" : "500",
+        "Accurancy" : "2",
+        "Weight" : "3"
+
+    },
+    "M32_MGL-1":{
+        "Price" : "2500",
+        "Damage" : "75",
+        "FireRate": "1.5",
+        "ReloadTime" : "5.2",
+        "Range" : "300",
+        "Accurancy" : "1",
+        "Weight" : "4"
+
+    },
+    "M32_MGL-2":{
+        "Price" : "2400",
+        "Damage" : "70",
+        "FireRate": "1.5",
+        "ReloadTime" : "5.2",
+        "Range" : "280",
+        "Accurancy" : "1",
+        "Weight" : "4"
+
+    },
+    "M32_MGL-3":{
+        "Price" : "2300",
+        "Damage" : "65",
+        "FireRate": "1.5",
+        "ReloadTime" : "5.2",
+        "Range" : "250",
+        "Accurancy" : "1",
+        "Weight" : "4"
+
+    },
+    "M32_MGL-4":{
+        "Price" : "2200",
+        "Damage" : "60",
+        "FireRate": "1.5",
+        "ReloadTime" : "5.2",
+        "Range" : "230",
+        "Accurancy" : "1",
+        "Weight" : "4"
+
+    },
+    "M32_MGL-5":{
+        "Price" : "2100",
+        "Damage" : "55",
+        "FireRate": "1.5",
+        "ReloadTime" : "5.2",
+        "Range" : "200",
+        "Accurancy" : "1",
+        "Weight" : "4"
+
+    },
+    "MP5K-1":{
+        "Price" : "800",
+        "Damage" : "40",
+        "FireRate": "0.086",
+        "ReloadTime" : "2.7",
+        "Range" : "200",
+        "Accurancy" : "2",
+        "Weight" : "2"
+
+    },
+    "MP5K-2":{
+        "Price" : "700",
+        "Damage" : "35",
+        "FireRate": "0.086",
+        "ReloadTime" : "2.7",
+        "Range" : "180",
+        "Accurancy" : "2",
+        "Weight" : "2"
+
+    },
+    "Raging Hormet":{
+        "Price" : "400",
+        "Damage" : "22",
+        "FireRate": "0.2",
+        "ReloadTime" : "3.3",
+        "Range" : "300",
+        "Accurancy" : "3",
+        "Weight" : "2"
+
+    },
+    "SDASS-MARTIAL-1":{
+        "Price" : "1000",
+        "Damage" : "50",
+        "FireRate": "0.45",
+        "ReloadTime" : "2.4",
+        "Range" : "100",
+        "Accurancy" : "1",
+        "Weight" : "3"
+
+    },
+    "SDASS-MARTIAL-2":{
+        "Price" : "900",
+        "Damage" : "45",
+        "FireRate": "0.45",
+        "ReloadTime" : "2.4",
+        "Range" : "90",
+        "Accurancy" : "1",
+        "Weight" : "3"
+
+    },
+    "SDASS-MARTIAL-3":{
+        "Price" : "800",
+        "Damage" : "40",
+        "FireRate": "0.45",
+        "ReloadTime" : "2.4",
+        "Range" : "80",
+        "Accurancy" : "1",
+        "Weight" : "3"
+
+    },
+    "SDASS-MARTIAL-4":{
+        "Price" : "700",
+        "Damage" : "35",
+        "FireRate": "0.45",
+        "ReloadTime" : "2.4",
+        "Range" : "70",
+        "Accurancy" : "1",
+        "Weight" : "3"
+
+    },
+    "SDASS-MARTIAL-5":{
+        "Price" : "600",
+        "Damage" : "30",
+        "FireRate": "0.45",
+        "ReloadTime" : "2.4",
+        "Range" : "60",
+        "Accurancy" : "1",
+        "Weight" : "3"
+
+    },
+    "Steyr_TMP-1":{
+        "Price" : "600",
+        "Damage" : "30",
+        "FireRate": "0.085",
+        "ReloadTime" : "2.7",
+        "Range" : "200",
+        "Accurancy" : "2",
+        "Weight" : "1.1"
+
+    },
+    "Steyr_TMP-2":{
+        "Price" : "550",
+        "Damage" : "28",
+        "FireRate": "0.085",
+        "ReloadTime" : "2.7",
+        "Range" : "180",
+        "Accurancy" : "2",
+        "Weight" : "1.1"
+
+    },
+    "Steyr_TMP-3":{
+        "Price" : "500",
+        "Damage" : "25",
+        "FireRate": "0.085",
+        "ReloadTime" : "2.7",
+        "Range" : "150",
+        "Accurancy" : "2",
+        "Weight" : "1.1"
+
+    },
+    "Steyr_TMP-4":{
+        "Price" : "450",
+        "Damage" : "23",
+        "FireRate": "0.085",
+        "ReloadTime" : "2.7",
+        "Range" : "130",
+        "Accurancy" : "2",
+        "Weight" : "1.1"
+
+    },
+    "Steyr_TMP-5":{
+        "Price" : "400",
+        "Damage" : "20",
+        "FireRate": "0.085",
+        "ReloadTime" : "2.7",
+        "Range" : "100",
+        "Accurancy" : "2",
+        "Weight" : "1.1"
+
+    }
+}

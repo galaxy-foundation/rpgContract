@@ -17,11 +17,18 @@ describe("Weapon test",()=>{
         var tx = await weaponNFT.setAcceptedToken(coin.address);
         await tx.wait();
 
+        var tokenURIS = [];
+        var prices = [];
         //init asssets
         for(var i=0; i<10; i++) {
             tx = await weaponNFT.AddAssets("test"+i.toString(),10000000);
             await tx.wait();
+            tokenURIS.push("test"+(i+10).toString());
+            prices.push(10000000);
         }
+
+        tx = await weaponNFT.BatchAddAssets(tokenURIS,prices);
+        await tx.wait();
     });
 
     it("weaponNFT test", async ()=>{

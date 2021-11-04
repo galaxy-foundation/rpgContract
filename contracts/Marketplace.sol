@@ -29,6 +29,8 @@ contract Marketplace is Ownable, Pausable, FeeManager, IMarketplace {
     // From ERC721 registry assetId to Bid (to avoid asset collision)
     mapping(address => mapping(uint256 => Bid)) public bidByOrderId;
 
+    mapping(address => mapping(uint256 => Bid[])) public bidHistoryByOrderId;
+
     // 721 Interfaces
     bytes4 public constant _INTERFACE_ID_ERC721 = 0x80ac58cd;
 
@@ -92,6 +94,8 @@ contract Marketplace is Ownable, Pausable, FeeManager, IMarketplace {
 
         // Remove pending bid if any
         Bid memory bid = bidByOrderId[_nftAddress][_assetId];
+
+        bidHistoryByOrderId[_nftAddress][_assetId].push(bid);
 
         if (bid.id != 0) {
             _cancelBid(
@@ -717,6 +721,13 @@ contract Marketplace is Ownable, Pausable, FeeManager, IMarketplace {
         bids = new Bid[](_assetIds.length);
         for(uint256 i = 0; i < _assetIds.length; i++){
             bids[i] = bidByOrderId[_nftAddress][_assetIds[i]];
+        }
+    }
+
+    function getBidHistoryByAssetIds (address _nftAddress,uint256[] memory _assetIds) external view returns(Bid[][] memory bids){
+        bids = new Bid[][](_assetIds.length);
+        for(uint256 i = 0; i < _assetIds.length; i++){
+            bids[i] = bidHistoryByOrderId[_nftAddress][_assetIds[i]];
         }
     }
 
