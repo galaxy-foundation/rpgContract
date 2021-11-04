@@ -20,7 +20,7 @@ const upload_IFPS =async (Num)=>{
         var result = await ipfs.files.add(contents);
         var ipfsHash = basic_ipfs_url+result[0].hash;
         console.log(ipfsHash);
-        ipfsHashes[key[i]] = ipfsHash;
+        ipfsHashes[keys[i]] = ipfsHash;
 
         await delay(10000);
     } 
