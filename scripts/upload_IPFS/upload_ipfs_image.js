@@ -14,8 +14,8 @@ const upload_IFPS =async (Num)=>{
 
     var keys = Object.keys(weaponInfos);
     for (var i = 0; i < keys.length; i++) {
-        const contents = fs.readFileSync(basic_file_path+keys[i]+"Moment.jpg");
-        console.log(basic_file_path+i+".jpg");
+        const contents = fs.readFileSync(basic_file_path+keys[i]+"_Moment.jpg");
+        console.log(basic_file_path+keys[i]+".jpg");
         
         var result = await ipfs.files.add(contents);
         var ipfsHash = basic_ipfs_url+result[0].hash;
@@ -27,7 +27,7 @@ const upload_IFPS =async (Num)=>{
     fs.writeFile("./resources/ipfshashes_images.json",JSON.stringify(ipfsHashes,null,4), function(err,content){
         if (err) throw err;
         console.log('complete');
-});
+    });
 }
 
 upload_IFPS(10)
