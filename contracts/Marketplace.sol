@@ -483,7 +483,6 @@ contract Marketplace is Ownable, Pausable, FeeManager, IMarketplace {
         );
     }
 
-
     /**
      * @dev Creates a new order
      * @param _nftAddress - Non fungible registry address
