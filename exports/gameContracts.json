@@ -1,6 +1,6 @@
 {
     "atariToken": {
-        "address": "0x41DC3ACB14E6991763c3946Ea22a6266763a1c1e",
+        "address": "0x4B185928D49ed4BFa99CE044be4580288229df0c",
         "abi": [
             {
                 "inputs": [],
@@ -364,7 +364,7 @@
         ]
     },
     "weaponNFT": {
-        "address": "0x451D43f9A674Ad0566408AdD402322A5Ea252B31",
+        "address": "0xacd34A5907a0bAF52A5bFAb17f05Ce917a601fd5",
         "abi": [
             {
                 "inputs": [
@@ -1168,7 +1168,7 @@
         ]
     },
     "multiCall": {
-        "address": "0xce3d0DE9e99A06483645c16Fc1ADA31609e76aF2",
+        "address": "0xBD9d70A764d8DAD7ad1535A3d9Fe2259424Cf0F5",
         "abi": [
             {
                 "anonymous": false,
@@ -1309,7 +1309,7 @@
         ]
     },
     "marketPlace": {
-        "address": "0x99a7abD13Ad5D44A671d2e8D22177767BaA566a3",
+        "address": "0x362A3d1118648b9992077f63Aa93FF27150792ca",
         "abi": [
             {
                 "inputs": [
@@ -2055,6 +2055,35 @@
             {
                 "inputs": [],
                 "name": "owner",
+                "outputs": [
+                    {
+                        "internalType": "address",
+                        "name": "",
+                        "type": "address"
+                    }
+                ],
+                "stateMutability": "view",
+                "type": "function"
+            },
+            {
+                "inputs": [
+                    {
+                        "internalType": "address",
+                        "name": "",
+                        "type": "address"
+                    },
+                    {
+                        "internalType": "uint256",
+                        "name": "",
+                        "type": "uint256"
+                    },
+                    {
+                        "internalType": "uint256",
+                        "name": "",
+                        "type": "uint256"
+                    }
+                ],
+                "name": "ownerHistoryByOrderId",
                 "outputs": [
                     {
                         "internalType": "address",
