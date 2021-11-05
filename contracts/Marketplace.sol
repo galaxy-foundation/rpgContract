@@ -30,6 +30,7 @@ contract Marketplace is Ownable, Pausable, FeeManager, IMarketplace {
     mapping(address => mapping(uint256 => Bid)) public bidByOrderId;
 
     mapping(address => mapping(uint256 => Bid[])) public bidHistoryByOrderId;
+    mapping(address => mapping(uint256 => address[])) public ownerHistoryByOrderId;
 
     // 721 Interfaces
     bytes4 public constant _INTERFACE_ID_ERC721 = 0x80ac58cd;
@@ -95,7 +96,6 @@ contract Marketplace is Ownable, Pausable, FeeManager, IMarketplace {
         // Remove pending bid if any
         Bid memory bid = bidByOrderId[_nftAddress][_assetId];
 
-        bidHistoryByOrderId[_nftAddress][_assetId].push(bid);
 
         if (bid.id != 0) {
             _cancelBid(
@@ -298,6 +298,8 @@ contract Marketplace is Ownable, Pausable, FeeManager, IMarketplace {
             msg.sender,
             _assetId
         );
+
+        ownerHistoryByOrderId[_nftAddress][_assetId].push(msg.sender);
         
         emit Buycreate(
             _nftAddress,
@@ -471,6 +473,7 @@ contract Marketplace is Ownable, Pausable, FeeManager, IMarketplace {
             _buyer,
             _assetId
         );
+        ownerHistoryByOrderId[_nftAddress][_assetId].push(_buyer);
 
         // Notify ..
         emit OrderSuccessful(
@@ -578,6 +581,7 @@ contract Marketplace is Ownable, Pausable, FeeManager, IMarketplace {
         // Check price if theres previous a bid
         Bid memory bid = bidByOrderId[_nftAddress][_assetId];
 
+        bidHistoryByOrderId[_nftAddress][_assetId].push(bid);
         // if theres no previous bid, just check price > 0
         if (bid.id != 0) {
             if (bid.expiresAt >= block.timestamp) {
