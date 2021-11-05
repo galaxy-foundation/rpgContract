@@ -1,148 +1,19 @@
 const hre = require("hardhat");
 const ipfsHashes = require("../resources/ipfshashes.json");
 
+const weaponInfos = require("../resources/weaponInfos.json")
+
 const getTokenURIS = ()=>{
-	
-	var _tokenInfos = [];
-	_tokenInfos.push({
-		tokenURI:{
-			weapon_name:"Colt M1911",
-			weapon_type:"3",
-			damage:"30",
-			fire_rate:"0.092",
-			reload_time:"2.2",
-			shot_range:"550",
-			accurency:"2",
-			weight:"2"
-		},
-		price :"1"
-	})
-	_tokenInfos.push({
-		tokenURI:{
-			weapon_name:"MP5K",
-			weapon_type:"3",
-			damage:"30",
-			fire_rate:"0.092",
-			reload_time:"2.2",
-			shot_range:"550",
-			accurency:"2",
-			weight:"2"
-		},
-		price :"1"
-	})
-	_tokenInfos.push({
-		tokenURI:{
-			weapon_name:"ARTIC",
-			weapon_type:"3",
-			damage:"30",
-			fire_rate:"0.092",
-			reload_time:"2.2",
-			shot_range:"550",
-			accurency:"2",
-			weight:"2"
-		},
-		price :"1"
-	})
-	_tokenInfos.push({
-		tokenURI:{
-			weapon_name:"TOXI",
-			weapon_type:"3",
-			damage:"30",
-			fire_rate:"0.092",
-			reload_time:"2.2",
-			shot_range:"550",
-			accurency:"2",
-			weight:"2"
-		},
-		price :"1"
-	})
-	_tokenInfos.push({
-		tokenURI:{
-			weapon_name:"SDASS MARTIAL",
-			weapon_type:"3",
-			damage:"30",
-			fire_rate:"0.092",
-			reload_time:"2.2",
-			shot_range:"550",
-			accurency:"2",
-			weight:"2"
-		},
-		price :"1"
-	})
-	_tokenInfos.push({
-		tokenURI:{
-			weapon_name:"Dragonov SVD",
-			weapon_type:"3",
-			damage:"30",
-			fire_rate:"0.092",
-			reload_time:"2.2",
-			shot_range:"550",
-			accurency:"2",
-			weight:"2"
-		},
-		price :"1"
-	})
-	_tokenInfos.push({
-		tokenURI:{
-			weapon_name:"Knife",
-			weapon_type:"3",
-			damage:"30",
-			fire_rate:"0.092",
-			reload_time:"2.2",
-			shot_range:"550",
-			accurency:"2",
-			weight:"2"
-		},
-		price :"1"
-	})
-	_tokenInfos.push({
-		tokenURI:{
-			weapon_name:"Bushmaster ACR",
-			weapon_type:"3",
-			damage:"30",
-			fire_rate:"0.092",
-			reload_time:"2.2",
-			shot_range:"550",
-			accurency:"2",
-			weight:"2"
-		},
-		price :"1"
-	})
-	_tokenInfos.push({
-		tokenURI:{
-			weapon_name:"SDASS MARTIAL",
-			weapon_type:"3",
-			damage:"30",
-			fire_rate:"0.092",
-			reload_time:"2.2",
-			shot_range:"550",
-			accurency:"2",
-			weight:"2"
-		},
-		price :"1"
-	})
-	_tokenInfos.push({
-		tokenURI:{
-			weapon_name:"M32 MGL",
-			weapon_type:"3",
-			damage:"30",
-			fire_rate:"0.092",
-			reload_time:"2.2",
-			shot_range:"550",
-			accurency:"2",
-			weight:"2"
-		},
-		price :"1"
-	})
+	var keys = Object.keys(weaponInfos);
 	var tokenInfos = [];
-	_tokenInfos.map ((tokenInfo,index)=>{
+	keys.map ((key,index)=>{
 		tokenInfos.push({
 			tokenURI:{
-				...tokenInfo.tokenURI,
-				image:ipfsHashes[String(index)]
+				...weaponInfos[key],
+				image:ipfsHashes[key],
+                name : key
 			},
-			price:tokenInfo.price
-
+			price:weaponInfos[key].Price
 		})
 	})
 
@@ -167,7 +38,7 @@ const deployWeaponNFT =async (atariCoin)=>{
     var prices = [];
 	//init asssets
 	for(var i=0; i<tokenInfos.length; i++) {
-		console.log(tokenInfos[i].tokenURI);
+		console.log(tokenInfos[i]);
         tokenURIs.push(JSON.stringify(tokenInfos[i].tokenURI));
         prices.push(ethers.utils.parseUnits(tokenInfos[i].price));
 	}
